@@ -1,9 +1,9 @@
 # Firebird custom build
 
+Custom Firebird build.  Contains some **ULTRA RARE** UDFs.
 
-Custom Firebird build. 
+[Packages at GHCR](https://github.com/pavlozt/firebird-crm-udf/pkgs/container/firebird-crm-udf)
 
-Contains some **ULTRA RARE** UDFs.
 
 
 # build memo:
@@ -14,6 +14,5 @@ git push origin main --tags
 git push --tags
 ```
 
-[![GHCR](https://img.shields.io/badge/GHCR-available-blue?logo=github)](https://github.com/pavlozt/firebird-legacy-docker/pkgs/container/firebird-crm-udf)
 
 

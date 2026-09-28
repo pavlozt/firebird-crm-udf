@@ -1,6 +1,19 @@
-FROM ghcr.io/pavlozt/firebird-legacy-docker:2.5.9-ss
-LABEL maintainer="pwlonw@gmail.com"
+ARG BASE_IMAGE=ghcr.io/pavlozt/firebird-legacy-docker:2.5.9-ss
+FROM ${BASE_IMAGE} AS builder
 
-VOLUME ["/firebird"]
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends build-essential
 
+WORKDIR /src
+COPY src/ .
+
+RUN gcc -c -O -fpic -I/usr/local/firebird/include ibu.c && \
+    ld -G ibu.o -lm -lc -L/usr/local/firebird/lib -lib_util -o ibu.so
+
+FROM ${BASE_IMAGE}
+
+COPY --from=builder /src/ibu.so /usr/local/firebird/UDF/
+
+#RUN chown firebird:firebird /usr/local/firebird/UDF/ibu.so && \
+#    chmod 550 /usr/local/firebird/UDF/ibu.so
 
