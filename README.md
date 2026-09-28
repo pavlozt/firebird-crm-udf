@@ -14,5 +14,10 @@ git push origin main --tags
 git push --tags
 ```
 
+or create tag:
 
+```
+git tag 0.0.2
+git push origin 0.0.2
+```
 

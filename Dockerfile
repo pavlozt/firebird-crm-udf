@@ -14,6 +14,3 @@ FROM ${BASE_IMAGE}
 
 COPY --from=builder /src/ibu.so /usr/local/firebird/UDF/
 
-#RUN chown firebird:firebird /usr/local/firebird/UDF/ibu.so && \
-#    chmod 550 /usr/local/firebird/UDF/ibu.so
-
