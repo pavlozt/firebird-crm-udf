@@ -14,3 +14,7 @@ FROM ${BASE_IMAGE}
 
 COPY --from=builder /src/ibu.so /usr/local/firebird/UDF/
 
+# Custom changes:  data volume 
+VOLUME ["/var/lib/firebird/2.5/"]
+ENV VOLUME=/var/lib/firebird/2.5
+
